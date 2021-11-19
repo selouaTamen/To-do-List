@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="script.css">
+
+    <script defer src="https://unpkg.com/vue@next"></script>
+    <script defer src="sript.js"></script>
+
+    <title>Todolist</title>
+</head>
+<body>
+    <div id="app" class="container">
+        <h1>Todo List</h1>
+
+        <div v-for="choseAfaire.length === 0">
+            <input type="text" v-model="aFaire">
+            <input type="submit" value="Ajouter" @click="addAfaire">
+        </div>
+    </br>
+    </br>
+          
+        <ol>
+            <li v-for="(aFaire, index) in choseAfaire">
+                <span :style="aFaire.toDo ? '' : 'text-decoration: line-through;'">{{ aFaire.content }}</span>
+                <button v-if="aFaire.toDo" @click="modifAfaire(index)">Terminée</button>
+                <button v-if="!aFaire.toDo" @click="supAfaire(index)">Supprimer</button>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>
